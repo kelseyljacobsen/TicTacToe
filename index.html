@@ -19,13 +19,14 @@
 		<input type="text" ng-model="inputOne">
 		<input type="submit" value="submit" class="submit">
 		</form>
+		<br>
 		<p ng-show="helloOne">hello, {{ Player_Name_One }} !</p>
-		<div ng-show="yourTurnOne">
-			<p>{{Player_Name_One}}, it's your turn.</p>
-		</div>
+		<br>
+		<p ng-show="yourTurnOne">{{Player_Name_One}}, it's your turn.</p>
 		<div ng-show="winnerOne">
 			<p class="winner">{{Player_Name_One}}, you win!</p>
 		</div>
+		<p id="catsGame" ng-show="catsGame">Cat's game!</p>
 	</div>
 
 	<div class="rightContainer">
@@ -34,13 +35,14 @@
 		<input type="text" ng-model="inputTwo">
 		<input type="submit" value="submit" class="submit">
 		</form>
+		<br>
 		<p ng-show="helloTwo">hello, {{ Player_Name_Two }} !</p>
-		<div ng-show="yourTurnTwo">
-			<p>{{Player_Name_Two}}, it's your turn.</p>
-		</div>
+		<br>
+		<p ng-show="yourTurnTwo">{{Player_Name_Two}}, it's your turn.</p>
 		<div ng-show="winnerTwo">
 			<p class="winner">{{Player_Name_Two}}, you win!</p>
 		</div>
+		<p id="catsGame" ng-show="catsGame">Cat's game!</p>
 	</div>
 
 
@@ -48,12 +50,12 @@
 
 	<table>
 		<tr ng-repeat="board in squares">
-		<td ng-repeat="square in board" ng-click="makeMove(square)" ng-class="{square:true, none:box.owner=='', X:square.owner=='P1', O:square.owner=='P2'}"></td>
+		<td ng-repeat="square in board" ng-click="isDisabled || makeMove(square)" ng-class="{square:true, none:box.owner=='', X:square.owner=='P1', O:square.owner=='P2'}" ng-model="isDisabled"></td>
 	</table>
 
 	<div id="letsPlayDiv">
-		<button value="let's play!" ng-show="startButton" ng-click="startGame()">let's play !</button>
-		<p id="catsGame" ng-show="catsGame">Cat's game!</p>
+		<button value="let's play!" ng-show="helloOne && helloTwo" ng-click="startGame()">let's play !</button>
+		<button value="play again!" ng-show="winnerOne || winnerTwo || catsGame" ng-click="playAgain()">play again !</button>
 	</div>
 	
 </body>
