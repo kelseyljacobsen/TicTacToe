@@ -5,19 +5,22 @@
 	<title>Tic Tac Toe</title>
 	<link rel="stylesheet" href="css/style.css">
 	<script src="js/angular.min.js"></script>
+	<script src="https://cdn.firebase.com/js/client/2.0.4/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/0.9.0/angularfire.min.js"></script>
 	<script src="js/app.js"></script>
 </head>
 <header>
 </header>
+
 <body ng-controller="TicTacToeController">
 
 	<h1>tic tac toe</h1>
 
 	<div class="leftContainer">
 		<form id="playerFormOne" ng-submit="submit(1)" ng-hide="formOne">
-		<p id="left">player 1, what's your name</p>
-		<input type="text" ng-model="inputOne">
-		<input type="submit" value="submit" class="submit">
+			<p id="left">player 1, what's your name</p>
+			<input type="text" ng-model="inputOne">
+			<input type="submit" value="submit" class="submit">
 		</form>
 		<br>
 		<p ng-show="helloOne">hello, {{ Player_Name_One }} !</p>
@@ -31,9 +34,9 @@
 
 	<div class="rightContainer">
 		<form id="playerFormTwo" ng-submit="submit(2)" ng-hide="formTwo">
-		<p id="right">player 2, what's your name</p>
-		<input type="text" ng-model="inputTwo">
-		<input type="submit" value="submit" class="submit">
+			<p id="right">player 2, what's your name</p>
+			<input type="text" ng-model="inputTwo">
+			<input type="submit" value="submit" class="submit">
 		</form>
 		<br>
 		<p ng-show="helloTwo">hello, {{ Player_Name_Two }} !</p>
@@ -45,18 +48,21 @@
 		<p id="catsGame" ng-show="catsGame">Cat's game!</p>
 	</div>
 
-
-
-
+<!--game board starts here-->
 	<table>
 		<tr ng-repeat="board in squares">
-		<td ng-repeat="square in board" ng-click="isDisabled || makeMove(square)" ng-class="{square:true, none:box.owner=='', X:square.owner=='P1', O:square.owner=='P2'}" ng-model="isDisabled"></td>
+		<td ng-repeat="square in board" ng-click="isDisabled || makeMove(square)" ng-class="{square:true, none:square.owner=='', X:square.owner=='P1', O:square.owner=='P2'}" ng-model="isDisabled">
+		</td>
 	</table>
+<!--game board ends here-->
 
+<!--bottom buttons starts here-->
 	<div id="letsPlayDiv">
 		<button value="let's play!" ng-show="helloOne && helloTwo" ng-click="startGame()">let's play !</button>
+		<button value="reset game" ng-show="yourTurnOne || yourTurnTwo" ng-click="resetGame()">reset game</button>
 		<button value="play again!" ng-show="winnerOne || winnerTwo || catsGame" ng-click="playAgain()">play again !</button>
 	</div>
+<!--bottom buttons end here-->
 	
 </body>
 </html>

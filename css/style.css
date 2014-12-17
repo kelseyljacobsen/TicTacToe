@@ -51,8 +51,9 @@ td {
 }
 
 td:hover {
-	background-color: white;
+	background-color: pink;
 	opacity: .5;
+	cursor: pointer;
 }
 
 p {
@@ -119,19 +120,21 @@ button {
 	background-color: white;
 	margin-top: 30px;
 	border-radius: 5px;
-	border-style: none;
 	color: black;
 	font-family: 'Amatic SC', cursive;
 }
 
 button:hover {
 	cursor: pointer;
+	background-color: black;
+	border-style: solid white;
+	color: white;
 }
 
 .X {
-	background-color: white;
+	background-image: url(../img/xmarker.png);
 }
 
 .O {
-	background-color: pink;
+	background-image: url(../img/omarker.png);
 }
