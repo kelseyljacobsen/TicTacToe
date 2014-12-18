@@ -1,13 +1,15 @@
 var ticTacToeApp = angular.module("ticTacToeApp",['firebase']);
 
-ticTacToeApp.controller("TicTacToeController", ['$scope', '$firebase', function($scope, $firebase){
+ticTacToeApp
+
+	.controller("TicTacToeController", ['$scope', '$firebase', function($scope, $firebase){
 
 //-------This sets the board up so a game can begin-----------------------------------------------------------//
 
 	$scope.squares = [
-		[{owner:""},{owner:""},{owner:""}],
-		[{owner:""},{owner:""},{owner:""}],
-		[{owner:""},{owner:""},{owner:""}]
+		[{owner:"", color:false},{owner:"", color:false},{owner:"", color:false}],
+		[{owner:"", color:false},{owner:"", color:false},{owner:"", color:false}],
+		[{owner:"", color:false},{owner:"", color:false},{owner:"", color:false}]
 	];
 
 	$scope.Player_Name_One = "";
@@ -35,7 +37,7 @@ ticTacToeApp.controller("TicTacToeController", ['$scope', '$firebase', function(
 	// 	isDisabled: true 
 	// };
 
-	//$scope.game.$save();
+	//$scope.game.$save(); <--need to add this to every function (and add $scope.game to all)
 
 //-------This is where players enter their names and player turns are assigned--------------------------------//
 
@@ -107,81 +109,134 @@ ticTacToeApp.controller("TicTacToeController", ['$scope', '$firebase', function(
 		$scope.winnerOne = false;
 		$scope.winnerTwo = false;
 		$scope.catsGame = false;
-		$scope.yourTurnOne = false;
-		$scope.yourTurnTwo = false;
 		$scope.isDisabled = false;
 
 		if (square1.owner == "P1" && square2.owner == "P1" && square3.owner == "P1"){
 			$scope.winnerOne = true;
 			$scope.isDisabled = true;
+			$scope.yourTurnOne = false;
+			$scope.yourTurnTwo = false;
+			square1.color = square2.color = square3.color = true;
 		} 
 		else if (square4.owner == "P1" && square5.owner == "P1" && square6.owner == "P1"){
 			$scope.winnerOne = true;
 			$scope.isDisabled = true;
+			$scope.yourTurnOne = false;
+			$scope.yourTurnTwo = false;
+			square4.color = square5.color = square6.color = true;
 		} 
 		else if (square7.owner == "P1" && square8.owner == "P1" && square9.owner == "P1"){
 			$scope.winnerOne = true;
 			$scope.isDisabled = true;
+			$scope.yourTurnOne = false;
+			$scope.yourTurnTwo = false;
+			square7.color = square8.color = square9.color = true;
 		} 
 		else if (square1.owner == "P1" && square4.owner == "P1" && square7.owner == "P1"){
 			$scope.winnerOne = true;
 			$scope.isDisabled = true;
+			$scope.yourTurnOne = false;
+			$scope.yourTurnTwo = false;
+			square1.color = square4.color = square7.color = true;
 		} 
 		else if (square2.owner == "P1" && square5.owner == "P1" && square8.owner == "P1"){
 			$scope.winnerOne = true;
 			$scope.isDisabled = true;
+			$scope.yourTurnOne = false;
+			$scope.yourTurnTwo = false;
+			square2.color = square5.color = square8.color = true;
 		} 
 		else if (square3.owner == "P1" && square6.owner == "P1" && square9.owner == "P1"){
 			$scope.winnerOne = true;
 			$scope.isDisabled = true;
+			$scope.yourTurnOne = false;
+			$scope.yourTurnTwo = false;
+			square3.color = square6.color = square9.color = true;
 		} 
 		else if (square1.owner == "P1" && square5.owner == "P1" && square9.owner == "P1"){
 			$scope.winnerOne = true;
 			$scope.isDisabled = true;
+			$scope.yourTurnOne = false;
+			$scope.yourTurnTwo = false;
+			square1.color = square5.color = square9.color = true;
 		} 
 		else if (square3.owner == "P1" && square5.owner == "P1" && square7.owner == "P1"){
 			$scope.winnerOne = true;
 			$scope.isDisabled = true;
+			$scope.yourTurnOne = false;
+			$scope.yourTurnTwo = false;
+			square3.color = square5.color = square7.color = true;
 		} 
 		else if (square1.owner == "P2" && square2.owner == "P2" && square3.owner == "P2"){
 			$scope.winnerTwo = true;
 			$scope.isDisabled = true;
+			$scope.yourTurnOne = false;
+			$scope.yourTurnTwo = false;
+			$scope.winningPlay = [1,2,3];
+			square1.color = square2.color = square3.color = true;
 		} 
 		else if (square4.owner == "P2" && square5.owner == "P2" && square6.owner == "P2"){
 			$scope.winnerTwo = true;
 			$scope.isDisabled = true;
+			$scope.yourTurnOne = false;
+			$scope.yourTurnTwo = false;
+			square4.color = square5.color = square6.color = true;
 		} 
 		else if (square7.owner == "P2" && square8.owner == "P2" && square9.owner == "P2"){
 			$scope.winnerTwo = true;
 			$scope.isDisabled = true;
+			$scope.yourTurnOne = false;
+			$scope.yourTurnTwo = false;
+			square7.color = square8.color = square9.color = true;
 		} 
 		else if (square1.owner == "P2" && square4.owner == "P2" && square7.owner == "P2"){
 			$scope.winnerTwo = true;
 			$scope.isDisabled = true;
+			$scope.yourTurnOne = false;
+			$scope.yourTurnTwo = false;
+			square1.color = square4.color = square7.color = true;
 		} 
 		else if (square2.owner == "P2" && square5.owner == "P2" && square8.owner == "P2"){
 			$scope.winnerTwo = true;
 			$scope.isDisabled = true;
+			$scope.yourTurnOne = false;
+			$scope.yourTurnTwo = false;
+			square2.color = square5.color = square8.color = true;
 		} 
 		else if (square3.owner == "P2" && square6.owner == "P2" && square9.owner == "P2"){
 			$scope.winnerTwo = true;
 			$scope.isDisabled = true;
+			$scope.yourTurnOne = false;
+			$scope.yourTurnTwo = false;
+			square3.color = square6.color = square9.color = true;
 		} 
 		else if (square1.owner == "P2" && square5.owner == "P2" && square9.owner == "P2"){
 			$scope.winnerTwo = true;
 			$scope.isDisabled = true;
+			$scope.yourTurnOne = false;
+			$scope.yourTurnTwo = false;
+			square1.color = square5.color = square9.color = true;
 		} 
 		else if (square3.owner == "P2" && square5.owner == "P2" && square7.owner == "P2"){
 			$scope.winnerTwo = true;
 			$scope.isDisabled = true;
+			$scope.yourTurnOne = false;
+			$scope.yourTurnTwo = false;
+			square3.color = square5.color = square7.color = true;
 		} 
 		else if ((square1.owner == "P1" || square1.owner == "P2") && (square2.owner == "P1" || square2.owner == "P2") && (square3.owner == "P1" || square3.owner == "P2") && (square4.owner == "P1" || square4.owner == "P2") && (square5.owner == "P1" || square5.owner == "P2") && (square6.owner == "P1" || square6.owner == "P2") && (square7.owner == "P1" || square7.owner == "P2") && (square8.owner == "P1" || square8.owner == "P2") && (square9.owner == "P1" || square9.owner == "P2")){
 			$scope.catsGame = true;
+			$scope.yourTurnOne = false;
+			$scope.yourTurnTwo = false;
 			$scope.isDisabled = true;
 		}
 
+		
 		// $scope.game.$save();
 	};
+
+	// -------- Color the Winning Combinations -------- //
+
 
 //-------When "play again" button is pressed, the board gets cleared with this function--------------------//
 
@@ -208,6 +263,10 @@ ticTacToeApp.controller("TicTacToeController", ['$scope', '$firebase', function(
 		[{owner:""},{owner:""},{owner:""}]
 		];
 	};
+
+			// 	$scope.gameOver = false;
+			// $scope.newPlayers = angular.copy($scope.players);
+			// $scope.newBoard = angular.copy($scope.gameContainer);
 
 //-------When "reset game" button is pressed, the board gets cleared with this function--------------------//
 

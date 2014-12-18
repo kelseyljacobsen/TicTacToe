@@ -53,7 +53,7 @@ td {
 td:hover {
 	background-color: pink;
 	opacity: .5;
-	cursor: pointer;
+	cursor: url(../img/chalk3.png), pointer;
 }
 
 p {
@@ -137,4 +137,46 @@ button:hover {
 
 .O {
 	background-image: url(../img/omarker.png);
+}
+
+.colorMe {
+	background-color: rgba(255, 204, 229, .8)
+}
+
+@media (max-width: 1086px) {
+	.p {
+		font-size: 20px;
+	}
+	.leftContainer {
+		font-size: 20px;
+	}
+	.rightContainer {
+		font-size: 20px;
+	}
+	.winner {
+		font-size: 20px;
+	}
+	#catsGame {
+		font-size: 20px;
+	}
+	input[type=text] {
+		height: 10px;
+		width: 80px;
+	}
+
+	input[type=submit] {
+		height: 10px;
+		width: 40px;
+		font-size: 10px;
+	}
+	td {
+		width: 100px;
+		height: 100px;
+	}
+	.X {
+		background-size: 100px;
+	}
+	.O {
+		background-size: 100px; 
+	}
 }

@@ -51,9 +51,10 @@
 <!--game board starts here-->
 	<table>
 		<tr ng-repeat="board in squares">
-		<td ng-repeat="square in board" ng-click="isDisabled || makeMove(square)" ng-class="{square:true, none:square.owner=='', X:square.owner=='P1', O:square.owner=='P2'}" ng-model="isDisabled">
+		<td ng-repeat="square in board" ng-click="isDisabled || makeMove(square)" ng-class="{square:true, none:square.owner=='', X:square.owner=='P1', O:square.owner=='P2', colorMe:square.color}" ng-model="isDisabled">
 		</td>
 	</table>
+
 <!--game board ends here-->
 
 <!--bottom buttons starts here-->
