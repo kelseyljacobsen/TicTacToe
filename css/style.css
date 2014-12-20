@@ -1,5 +1,24 @@
 @import url(http://fonts.googleapis.com/css?family=Amatic+SC:700);
 @import url(http://fonts.googleapis.com/css?family=Homemade+Apple);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
+
+.welcomeWindow {
+	text-align: center;
+	margin: auto;
+}
+
+#info {
+	margin-left: 355px;
+	margin-right: 350px;
+	text-align: left;
+	font-family: 'Open Sans Condensed', sans-serf;
+	font-size: 20px;
+}
+
+.titles {
+	font-family: 'Amatic SC', cursive;
+	font-size: 30px;
+}
 
 html {
 	background: url(../img/chalkboard.png) no-repeat center center fixed;
@@ -53,14 +72,20 @@ td {
 td:hover {
 	background-color: pink;
 	opacity: .5;
-	cursor: url(../img/chalk3.png), pointer;
+	cursor: pointer;
 }
 
 p {
 	color: white;
+	margin-bottom: -10px;
 }
 
-.winner {
+#winnerOne {
+	color: white;
+	font-family: 'Amatic SC', cursive;
+	font-size: 50px;
+}
+#winnerTwo {
 	color: white;
 	font-family: 'Amatic SC', cursive;
 	font-size: 50px;
@@ -79,6 +104,7 @@ p {
 .leftContainer {
 	float: left;
 	width: 20%;
+	min-height: 400px;
 	padding-left: 20px;
 	font-family: 'Amatic SC', cursive;
 	font-size: 30px;
@@ -87,6 +113,7 @@ p {
 .rightContainer {
 	float: right;
 	width: 20%;
+	min-height: 400px;
 	padding-right: 20px;
 	text-align: right;
 	font-family: 'Amatic SC', cursive;
@@ -94,27 +121,36 @@ p {
 }
 
 input[type=text] {
-	height: 20px;
-	width: 130px;
+	height: 25px;
+	width: 140px;
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 18px;
 }
 
-input[type=submit] {
-	height: 20px;
-	width: 60px;
+.submitButton {
+	font-family: 'Amatic SC', cursive;
 	font-size: 20px;
+	background-color: white;
+	margin-top: 30px;
+	border-radius: 5px;
+	color: black;
+	height: 30px;
+	font-size: 18px;
 }
 
-input[type=submit]:hover {
+.submitButton:hover {
 	cursor: pointer;
+	background-color: black;
+	border-style: solid white;
+	color: white;
 }
 
 #letsPlayDiv {
 	text-align: center;
 }
 
-
 button {
-	width: 150px;
+	width: 140px;
 	height: 45px;
 	font-size: 30px;
 	background-color: white;
