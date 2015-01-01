@@ -17,6 +17,9 @@
 
 <body ng-controller="TicTacToeController as TTT">
 	<h1>tic tac toe</h1>
+
+<!-- welcome window starts here -->
+
 	<div ng-show="TTT.welcomeWindow" class="welcomeWindow">
 		<br>
 		<img src="img/xox.png">
@@ -29,8 +32,11 @@
 		<button id="enterGame" type="submit" ng-click="TTT.getGameWindow()">start game</button>
 	</div>
 
+<!-- entire game window starts here -->
 
 	<div id="gameWindow" ng-show="TTT.gameWindow">
+
+<!-- left side of board for player 1 -->
 		<div class="leftContainer">
 			<form id="playerFormOne" ng-submit="TTT.submit(1)" ng-hide="TTT.game.formOne">
 				<p id="left">player 1, what's your name</p>
@@ -47,6 +53,8 @@
 			<p id="catsGame" class="bounceIn" ng-show="TTT.game.catsGame">Cat's game!</p>
 		</div>
 		<p id="playerOneWins">Total wins: {{ TTT.game.playerOneWins }} / {{ TTT.game.totalGames }}</p>
+
+<!-- right side of board for player 2 -->
 
 		<div class="rightContainer">
 			<form id="playerFormTwo" ng-submit="TTT.submit(2)" ng-hide="TTT.game.formTwo">
@@ -65,6 +73,7 @@
 		</div>
 		<p id="playerTwoWins">Total wins: {{ TTT.game.playerTwoWins }} / {{ TTT.game.totalGames }}</p>
 
+<!-- game board here -->
 
 		<table>
 			<tr ng-repeat="board in TTT.game.squares">
@@ -72,14 +81,13 @@
 			</td>
 		</table>
 
+<!--bottom buttons start here-->
 
-	<!--bottom buttons starts here-->
 		<div id="letsPlayDiv">
 			<button value="let's play!" ng-show="TTT.game.helloOne && TTT.game.helloTwo" ng-click="TTT.startGame()">let's play !</button>
 			<button value="reset game" ng-show="TTT.game.yourTurnOne || TTT.game.yourTurnTwo" ng-click="TTT.resetGame()">reset game</button>
 			<button value="play again!" ng-show="TTT.game.winnerOne || TTT.game.winnerTwo || TTT.game.catsGame" ng-click="TTT.playAgain()">play again !</button>
 		</div>
-	<!--bottom buttons end here-->
 	</div>
 
 </body>

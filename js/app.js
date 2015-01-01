@@ -16,22 +16,17 @@ angular
 		controller.makeMove = makeMove;
 		controller.compare = compare;
 		controller.switchPlayers = switchPlayers;
-		
-		// controller.welcomeWindow = true;
-		// controller.gameWindow = false;
-
-			// 	$scope.triggerInfoBox = function(){
-			// $scope.infoBoxView = true;
-
-		
 		controller.welcomeWindow = true;
 		controller.gameWindow = false;
 
+// Firebase setup
 
 		function getGameObject() {
 			var ref = new Firebase('https://chalkboardtictactoe.firebaseio.com/game');
 			return $firebase(ref).$asObject();
 		}
+
+// When "start game" button is pressed, the welcome view switches to the game view
 
 		function getGameWindow() {
 			controller.welcomeWindow = false;
@@ -41,7 +36,7 @@ angular
 			controller.game.$save();
 		}
 
-//-------This sets the board up so a game can begin-----------------------------------------------------------//
+// Game board set up
 
 		function newGame() {
 			controller.game.squares = [
@@ -65,14 +60,11 @@ angular
 			controller.game.playerOneWins = 0;
 			controller.game.playerTwoWins = 0;
 			controller.game.totalGames = 0;
-			controller.game.Player_Turn = "Player 1";
 			
 			controller.game.$save();
 		};
 
-
-
-//-------This is where players enter their names and player turns are assigned--------------------------------//
+// Players enter name
 
 		function submit(player) {
 			if (player==1) {
@@ -91,8 +83,7 @@ angular
 			controller.game.$save();
 		};
 
-//-------This is where the game is set. Play can't start until "let's play!" button is pressed---------------//
-//-------Player 1 always plays first-------------------------------------------------------------------------//
+// Player who gets the first turn alternates every game
 
 		function switchPlayers() {
 			if (controller.game.totalGames%2 == 0) {
@@ -109,6 +100,8 @@ angular
 			controller.game.$save();
 		};
 
+// Game starts when "let's play" button is pressed 
+
 		function startGame() {
 			switchPlayers();
 			controller.game.helloOne = false;
@@ -118,10 +111,7 @@ angular
 			controller.game.$save();
 		};
 
-	
-
-//-------This is where players make their moves and claim squares--------------------------------------------//
-//-------The compare function is automatically invoked after square is claimed-------------------------------//
+// Players make a move by claiming a square. Compare function is invoked after every claim.
 
 		function makeMove(square) {
 			if (square.owner == "P1" || square.owner == "P2") {
@@ -145,7 +135,8 @@ angular
 			controller.game.$save();
 		};
 
-//-------After move is made, the game compares the whole board at once, looking for winning rows/columns-----//
+// Compare function checks for winning combination of squares.
+// If there's a winning combination, the game is disabled, the game counters add a game, and winning combo gets colored.
 
 		function compare() {
 			var square1 = controller.game.squares[0][0];
@@ -311,9 +302,7 @@ angular
 			controller.game.$save();
 		};
 
-	// -------- Color the Winning Combinations -------- //
-
-//-------When "play again" button is pressed, the board gets cleared with this function--------------------//
+// Players can play another game by clicking on the "play again" button. Players' names and wins get saved.
 
 	function playAgain() {
 
@@ -339,11 +328,7 @@ angular
 		controller.game.$save();
 	};
 
-			// 	controller.game.gameOver = false;
-			// $scope.newPlayers = angular.copy($scope.players);
-			// $scope.newBoard = angular.copy($scope.gameContainer);
-
-//-------When "reset game" button is pressed, the board gets cleared with this function--------------------//
+// Game starts over when the "reset game" button is pressed. Player names and wins are not saved.
 
 	function resetGame() {
 
