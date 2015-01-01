@@ -1,0 +1,9 @@
+{
+  "firebase": "chalkboardtictactoe",
+  "public": ".",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}
