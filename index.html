@@ -31,7 +31,6 @@
 
 
 	<div id="gameWindow" ng-show="TTT.gameWindow">
-
 		<div class="leftContainer">
 			<form id="playerFormOne" ng-submit="TTT.submit(1)" ng-hide="TTT.game.formOne">
 				<p id="left">player 1, what's your name</p>
@@ -47,6 +46,7 @@
 			</div>
 			<p id="catsGame" class="bounceIn" ng-show="TTT.game.catsGame">Cat's game!</p>
 		</div>
+		<p id="playerOneWins">Total wins: {{ TTT.game.playerOneWins }} / {{ TTT.game.totalGames }}</p>
 
 		<div class="rightContainer">
 			<form id="playerFormTwo" ng-submit="TTT.submit(2)" ng-hide="TTT.game.formTwo">
@@ -63,6 +63,7 @@
 			</div>
 			<p id="catsGame" class="bounceIn" ng-show="TTT.game.catsGame">Cat's game!</p>
 		</div>
+		<p id="playerTwoWins">Total wins: {{ TTT.game.playerTwoWins }} / {{ TTT.game.totalGames }}</p>
 
 
 		<table>
@@ -80,7 +81,6 @@
 		</div>
 	<!--bottom buttons end here-->
 	</div>
-		
-	
+
 </body>
 </html>

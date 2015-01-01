@@ -15,6 +15,7 @@ angular
 		controller.playAgain = playAgain;
 		controller.makeMove = makeMove;
 		controller.compare = compare;
+		controller.switchPlayers = switchPlayers;
 		
 		// controller.welcomeWindow = true;
 		// controller.gameWindow = false;
@@ -24,7 +25,7 @@ angular
 
 		
 		controller.welcomeWindow = true;
-		controller.gameWindow = false;	
+		controller.gameWindow = false;
 
 
 		function getGameObject() {
@@ -61,6 +62,9 @@ angular
 			controller.game.winnerTwo = false;
 			controller.game.formOne = false;
 			controller.game.formTwo = false;
+			controller.game.playerOneWins = 0;
+			controller.game.playerTwoWins = 0;
+			controller.game.totalGames = 0;
 			controller.game.Player_Turn = "Player 1";
 			
 			controller.game.$save();
@@ -90,8 +94,23 @@ angular
 //-------This is where the game is set. Play can't start until "let's play!" button is pressed---------------//
 //-------Player 1 always plays first-------------------------------------------------------------------------//
 
+		function switchPlayers() {
+			if (controller.game.totalGames%2 == 0) {
+				controller.game.Player_Turn = "Player 1";
+				controller.game.yourTurnOne = true;
+				controller.game.yourTurnTwo = false;
+			}
+			else {
+				controller.game.Player_Turn = "Player 2";
+				controller.game.yourTurnOne = false;
+				controller.game.yourTurnTwo = true;
+			}
+
+			controller.game.$save();
+		};
+
 		function startGame() {
-			controller.game.yourTurnOne = true;
+			switchPlayers();
 			controller.game.helloOne = false;
 			controller.game.helloTwo = false;
 			controller.game.isDisabled = false;
@@ -144,6 +163,8 @@ angular
 			controller.game.isDisabled = true;
 			controller.game.yourTurnOne = false;
 			controller.game.yourTurnTwo = false;
+			controller.game.playerOneWins += 1;
+			controller.game.totalGames += 1;
 			square1.color = square2.color = square3.color = true;
 		} 
 		else if (square4.owner == "P1" && square5.owner == "P1" && square6.owner == "P1"){
@@ -151,6 +172,8 @@ angular
 			controller.game.isDisabled = true;
 			controller.game.yourTurnOne = false;
 			controller.game.yourTurnTwo = false;
+			controller.game.playerOneWins += 1;
+			controller.game.totalGames += 1;
 			square4.color = square5.color = square6.color = true;
 		} 
 		else if (square7.owner == "P1" && square8.owner == "P1" && square9.owner == "P1"){
@@ -158,6 +181,8 @@ angular
 			controller.game.isDisabled = true;
 			controller.game.yourTurnOne = false;
 			controller.game.yourTurnTwo = false;
+			controller.game.playerOneWins += 1;
+			controller.game.totalGames += 1;
 			square7.color = square8.color = square9.color = true;
 		} 
 		else if (square1.owner == "P1" && square4.owner == "P1" && square7.owner == "P1"){
@@ -165,6 +190,8 @@ angular
 			controller.game.isDisabled = true;
 			controller.game.yourTurnOne = false;
 			controller.game.yourTurnTwo = false;
+			controller.game.playerOneWins += 1;
+			controller.game.totalGames += 1;
 			square1.color = square4.color = square7.color = true;
 		} 
 		else if (square2.owner == "P1" && square5.owner == "P1" && square8.owner == "P1"){
@@ -172,6 +199,8 @@ angular
 			controller.game.isDisabled = true;
 			controller.game.yourTurnOne = false;
 			controller.game.yourTurnTwo = false;
+			controller.game.playerOneWins += 1;
+			controller.game.totalGames += 1;
 			square2.color = square5.color = square8.color = true;
 		} 
 		else if (square3.owner == "P1" && square6.owner == "P1" && square9.owner == "P1"){
@@ -179,6 +208,8 @@ angular
 			controller.game.isDisabled = true;
 			controller.game.yourTurnOne = false;
 			controller.game.yourTurnTwo = false;
+			controller.game.playerOneWins += 1;
+			controller.game.totalGames += 1;
 			square3.color = square6.color = square9.color = true;
 		} 
 		else if (square1.owner == "P1" && square5.owner == "P1" && square9.owner == "P1"){
@@ -186,6 +217,8 @@ angular
 			controller.game.isDisabled = true;
 			controller.game.yourTurnOne = false;
 			controller.game.yourTurnTwo = false;
+			controller.game.playerOneWins += 1;
+			controller.game.totalGames += 1;
 			square1.color = square5.color = square9.color = true;
 		} 
 		else if (square3.owner == "P1" && square5.owner == "P1" && square7.owner == "P1"){
@@ -193,6 +226,8 @@ angular
 			controller.game.isDisabled = true;
 			controller.game.yourTurnOne = false;
 			controller.game.yourTurnTwo = false;
+			controller.game.playerOneWins += 1;
+			controller.game.totalGames += 1;
 			square3.color = square5.color = square7.color = true;
 		} 
 		else if (square1.owner == "P2" && square2.owner == "P2" && square3.owner == "P2"){
@@ -200,7 +235,8 @@ angular
 			controller.game.isDisabled = true;
 			controller.game.yourTurnOne = false;
 			controller.game.yourTurnTwo = false;
-			controller.game.winningPlay = [1,2,3];
+			controller.game.playerTwoWins += 1;
+			controller.game.totalGames += 1;
 			square1.color = square2.color = square3.color = true;
 		} 
 		else if (square4.owner == "P2" && square5.owner == "P2" && square6.owner == "P2"){
@@ -208,6 +244,8 @@ angular
 			controller.game.isDisabled = true;
 			controller.game.yourTurnOne = false;
 			controller.game.yourTurnTwo = false;
+			controller.game.playerTwoWins += 1;
+			controller.game.totalGames += 1;
 			square4.color = square5.color = square6.color = true;
 		} 
 		else if (square7.owner == "P2" && square8.owner == "P2" && square9.owner == "P2"){
@@ -215,6 +253,8 @@ angular
 			controller.game.isDisabled = true;
 			controller.game.yourTurnOne = false;
 			controller.game.yourTurnTwo = false;
+			controller.game.playerTwoWins += 1;
+			controller.game.totalGames += 1;
 			square7.color = square8.color = square9.color = true;
 		} 
 		else if (square1.owner == "P2" && square4.owner == "P2" && square7.owner == "P2"){
@@ -222,6 +262,8 @@ angular
 			controller.game.isDisabled = true;
 			controller.game.yourTurnOne = false;
 			controller.game.yourTurnTwo = false;
+			controller.game.playerTwoWins += 1;
+			controller.game.totalGames += 1;
 			square1.color = square4.color = square7.color = true;
 		} 
 		else if (square2.owner == "P2" && square5.owner == "P2" && square8.owner == "P2"){
@@ -229,6 +271,8 @@ angular
 			controller.game.isDisabled = true;
 			controller.game.yourTurnOne = false;
 			controller.game.yourTurnTwo = false;
+			controller.game.playerTwoWins += 1;
+			controller.game.totalGames += 1;
 			square2.color = square5.color = square8.color = true;
 		} 
 		else if (square3.owner == "P2" && square6.owner == "P2" && square9.owner == "P2"){
@@ -236,6 +280,7 @@ angular
 			controller.game.isDisabled = true;
 			controller.game.yourTurnOne = false;
 			controller.game.yourTurnTwo = false;
+			controller.game.playerTwoWins += 1;
 			square3.color = square6.color = square9.color = true;
 		} 
 		else if (square1.owner == "P2" && square5.owner == "P2" && square9.owner == "P2"){
@@ -243,6 +288,8 @@ angular
 			controller.game.isDisabled = true;
 			controller.game.yourTurnOne = false;
 			controller.game.yourTurnTwo = false;
+			controller.game.playerTwoWins += 1;
+			controller.game.totalGames += 1;
 			square1.color = square5.color = square9.color = true;
 		} 
 		else if (square3.owner == "P2" && square5.owner == "P2" && square7.owner == "P2"){
@@ -250,6 +297,8 @@ angular
 			controller.game.isDisabled = true;
 			controller.game.yourTurnOne = false;
 			controller.game.yourTurnTwo = false;
+			controller.game.playerTwoWins += 1;
+			controller.game.totalGames += 1;
 			square3.color = square5.color = square7.color = true;
 		} 
 		else if ((square1.owner == "P1" || square1.owner == "P2") && (square2.owner == "P1" || square2.owner == "P2") && (square3.owner == "P1" || square3.owner == "P2") && (square4.owner == "P1" || square4.owner == "P2") && (square5.owner == "P1" || square5.owner == "P2") && (square6.owner == "P1" || square6.owner == "P2") && (square7.owner == "P1" || square7.owner == "P2") && (square8.owner == "P1" || square8.owner == "P2") && (square9.owner == "P1" || square9.owner == "P2")){
@@ -257,6 +306,7 @@ angular
 			controller.game.yourTurnOne = false;
 			controller.game.yourTurnTwo = false;
 			controller.game.isDisabled = true;
+			controller.game.totalGames += 1;
 		}		
 			controller.game.$save();
 		};
@@ -269,15 +319,22 @@ angular
 
 		var keepPlayerOne = controller.game.Player_Name_One;
 		var keepPlayerTwo = controller.game.Player_Name_Two;
+		var keepPlayerOneWins = controller.game.playerOneWins;
+		var keepPlayerTwoWins = controller.game.playerTwoWins;
+		var keepTotalGames = controller.game.totalGames;
 
 		newGame();
 
 		controller.game.Player_Name_One = keepPlayerOne;
 		controller.game.Player_Name_Two = keepPlayerTwo;
-		controller.game.helloOne = true;
-		controller.game.helloTwo = true;
+		controller.game.playerOneWins = keepPlayerOneWins;
+		controller.game.playerTwoWins = keepPlayerTwoWins;
+		controller.game.totalGames = keepTotalGames;
+		controller.game.isDisabled = false;
 		controller.game.formOne = true;
 		controller.game.formTwo = true;
+
+		switchPlayers();
 
 		controller.game.$save();
 	};

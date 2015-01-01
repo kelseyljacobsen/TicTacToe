@@ -1,6 +1,6 @@
-@import url(http://fonts.googleapis.com/css?family=Amatic+SC:700);
-@import url(http://fonts.googleapis.com/css?family=Homemade+Apple);
-@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
+@import url(https://fonts.googleapis.com/css?family=Amatic+SC:700);
+@import url(https://fonts.googleapis.com/css?family=Homemade+Apple);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
 
 .welcomeWindow {
 	text-align: center;
@@ -8,11 +8,19 @@
 }
 
 #info {
-	margin-left: 355px;
-	margin-right: 350px;
+	position: absolute;
+	top: 33%;
+	left: 32%;
+	right: 30%;
 	text-align: left;
 	font-family: 'Open Sans Condensed', sans-serf;
 	font-size: 20px;
+}
+
+#enterGame {
+	position: absolute;
+	top: 78%;
+	left: 44%;
 }
 
 .titles {
@@ -120,6 +128,27 @@ p {
 	font-size: 30px;
 }
 
+#playerOneWins {
+	position: absolute;
+	top: 400px;
+	left: 0px;
+	float: left;
+	padding-left: 20px;
+	font-family: 'Amatic SC', cursive;
+	font-size: 30px;
+}
+
+#playerTwoWins {
+	position: fixed;
+	top: 400px;
+	right: 0px;
+	margin-right: 0px;
+	padding-right: 20px;
+	text-align: right;
+	font-family: 'Amatic SC', cursive;
+	font-size: 30px;
+}
+
 input[type=text] {
 	height: 25px;
 	width: 140px;
@@ -195,11 +224,13 @@ button:hover {
 	#catsGame {
 		font-size: 20px;
 	}
+	#info {
+		font-size: 15px;
+	}
 	input[type=text] {
 		height: 10px;
 		width: 80px;
 	}
-
 	input[type=submit] {
 		height: 10px;
 		width: 40px;
