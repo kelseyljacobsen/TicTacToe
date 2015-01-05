@@ -77,7 +77,7 @@
 
 		<table>
 			<tr ng-repeat="board in TTT.game.squares">
-			<td ng-repeat="square in board" ng-click="TTT.game.isDisabled || TTT.makeMove(square)" ng-class="{square:true, none:square.owner=='', X:square.owner=='P1', O:square.owner=='P2', colorMe:square.color}" ng-model="TTT.game.isDisabled">
+			<td ng-repeat="square in board" ng-click="TTT.game.isDisabled || TTT.makeMove(square)" ng-class="{square:true, none:square.owner=='', X:square.owner=='P1', O:square.owner=='P2', spinMe:square.spin}" ng-model="TTT.game.isDisabled">
 			</td>
 		</table>
 
