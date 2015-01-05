@@ -78,9 +78,14 @@ td {
 }
 
 td:hover {
-	background-color: pink;
-	opacity: .5;
+	background-color: rgba(180,	205, 205, .5);
+	transition: .2s;
 	cursor: pointer;
+}
+
+td:active {
+	background-color: rgba(162, 184, 184, .5);
+	transition: .2s;
 }
 
 p {
